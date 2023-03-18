@@ -7,6 +7,8 @@ defmodule NPlusOne.Application do
 
   @impl true
   def start(_type, _args) do
+    :ok = :telemetry.attach("n1-log", [:n_plus_one, :repo, :query], &NPlusOne.N1Check.Handler.handle_event/4, nil)
+
     children = [
       # Start the Telemetry supervisor
       NPlusOneWeb.Telemetry,
@@ -17,9 +19,9 @@ defmodule NPlusOne.Application do
       # Start Finch
       {Finch, name: NPlusOne.Finch},
       # Start the Endpoint (http/https)
-      NPlusOneWeb.Endpoint
+      NPlusOneWeb.Endpoint,
       # Start a worker by calling: NPlusOne.Worker.start_link(arg)
-      # {NPlusOne.Worker, arg}
+      {NPlusOne.N1Check.Detector, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

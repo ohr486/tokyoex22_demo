@@ -5,7 +5,8 @@ config :n_plus_one, NPlusOne.Repo,
   database: Path.expand("../n_plus_one_dev.db", Path.dirname(__ENV__.file)),
   pool_size: 5,
   stacktrace: true,
-  show_sensitive_data_on_connection_error: true
+  show_sensitive_data_on_connection_error: true,
+  telemetry_prefix: [:n_plus_one, :repo]
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
