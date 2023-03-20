@@ -1,5 +1,11 @@
 # NPlusOne
 
+## event slide
+
+https://docs.google.com/presentation/d/1YUi3mRuCv-Okdjyh1bZQVIQ-dqpOxl3ELs96t0Sb7CY/edit?usp=sharing
+
+## setup 
+
 To start your Phoenix server:
 
   * Run `mix setup` to install and setup dependencies
